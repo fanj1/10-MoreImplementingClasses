@@ -2,8 +2,8 @@
 A   CapitalT   class and methods that use the Cross class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jun Fan.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -16,10 +16,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    run_test_simple_t()
+    run_test_set_colors()
+    run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -137,11 +137,25 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
         # --------------------------------------------------------------
-        # TODO: 3.
+        # DONE: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
         # --------------------------------------------------------------
+
+        self.intersection = intersection_center.clone()
+        self.width = width
+        self.height = height
+        self.thickness = letter_thickness
+
+        self.h_rect = rg.Rectangle(rg.Point(self.intersection.x + 0.5 * self.width,
+                                            self.intersection.y + 0.5 * self.thickness),
+                                   rg.Point(self.intersection.x - 0.5 * self.width,
+                                            self.intersection.y - 0.5 * self.thickness))
+        self.v_rect = rg.Rectangle(rg.Point(self.intersection.x - 0.5 * self.thickness,
+                                            self.intersection.y - 0.5 * self.thickness),
+                                   rg.Point(self.intersection.x + 0.5 * self.thickness,
+                                            self.intersection.y + self.height - 0.5 * self.thickness))
 
     def attach_to(self, window):
         """
