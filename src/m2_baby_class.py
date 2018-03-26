@@ -92,9 +92,14 @@ def main():
 
 class Baby(object):
 
-    def __init__(self,name):
+    def __init__(self, name):
         self.name = name
-        Print 'Hello Baby <' + name + '>'
+
+    def __repr__(self):
+        return 'Hello Baby <' + self.name + '>'
+
+    def feed_baby(self):
+
 
 
 

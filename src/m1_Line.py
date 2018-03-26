@@ -226,10 +226,10 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-        self.start = start
-        self.int_start = start
-        self.end = end
-        self.int_end = end
+        self.start = start.clone()
+        self.int_start = start.clone()
+        self.end = end.clone()
+        self.int_end = end.clone()
         self.number = 0
 
     def __repr__(self):
@@ -670,10 +670,10 @@ class Line(object):
         # are different from each other.
         ################################################################
 
-        if self.slope() == line2.slope():
+        if round(self.slope(), 10) == round(line2.slope(), 10):
             return True
         else:
-            if self.slope() == - line2.slope():
+            if round(self.slope(), 10) == - round(line2.slope(), 10):
                 return True
             else:
                 return False
