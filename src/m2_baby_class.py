@@ -94,21 +94,28 @@ class Baby(object):
 
     def __init__(self, name):
         self.name = name
-
-    def __repr__(self):
-        return 'Hello Baby <' + self.name + '>'
+        self.number = 0
+        print('Hello Baby', self.name, '!')
 
     def feed_baby(self):
+        self.number = 0
+        print('Thank you for feeding baby', self.name, '.')
 
-
-
-
-
-
+    def hour_passes(self):
+        if self.number == 0:
+            print('Baby', self.name, 'is sleeping.')
+        else:
+            if self.number == 1:
+                print('Baby', self.name, 'is awake.  Time for food.')
+            else:
+                print('Baby', self.name, 'is CRYING uncontrollably!  Feed the Baby!')
+        self.number = self.number + 1
 
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
 # ----------------------------------------------------------------------
+
+
 if __name__ == '__main__':
     main()
